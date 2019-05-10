@@ -1,5 +1,6 @@
 public class BeerSong {
     public static void main (String [] args){
+//        Простой цикл
       /*  int x = 1;
         while (x < 3) {
             System.out.print("Do");
@@ -10,6 +11,7 @@ public class BeerSong {
             System.out.print("Do");
         }
     }*/
+      // Создаем приложение по подсчету выпитых бутылок
         int numBeer = 4;
         String word = " бутылки";
         while (numBeer > 0) {
