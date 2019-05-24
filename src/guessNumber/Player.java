@@ -1,4 +1,4 @@
-package com.guessNumber;
+package guessNumber;
 
 public class Player {
 
