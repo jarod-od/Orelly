@@ -12,6 +12,8 @@ public class LoopsFight {
             if(ch == ' ') spaces++;
         } while(ch != '.');
         System.out.println("Пробелов: " + spaces);
+//        for (int i = 0; i < 10; i++) {
+        }
     }
-}
+
 
