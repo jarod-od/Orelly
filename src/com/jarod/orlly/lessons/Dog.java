@@ -2,6 +2,7 @@ package com.jarod.orlly.lessons;
 
 public class Dog {
     String name;
+
     public static void main(String[] args) {
                 Dog dog1 = new Dog();
                 dog1.bark();
