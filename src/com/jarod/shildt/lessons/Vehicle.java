@@ -5,6 +5,16 @@ package com.jarod.shildt.lessons;
      int passengers;  // количество пассажиров
      int fuelcup;     // емкость топливного бака
      int mpg;        // потребление топлива в милях на галлон
+
+     //Определение дальности поездки транспортного средства
+     int range (){
+        return mpg * fuelcup;
+     }
+
+     // Расчет количества топлива, необходимого транспортному средству для преодоления заданного расстояния
+     double fuelneeded (int miles){
+         return (double) miles / mpg;
+     }
  }
     class VehicleTest{
 
@@ -12,29 +22,24 @@ package com.jarod.shildt.lessons;
 
         Vehicle minivan = new Vehicle();
         Vehicle sportcar = new Vehicle();
-        int range; // расстояние
-        int range2;
+        double gallons;
+        int distance = 252;
 
-        if(minivan.equals(sportcar)){
-            System.out.println("Вау!");
-        }else {
-            System.out.println("Пухляш пожирнее будет");
-        }
         minivan.passengers = 6;
         minivan.fuelcup = 15;
         minivan.mpg = 21;
 
         sportcar.passengers = 2;
         sportcar.fuelcup = 11;
-        sportcar.mpg = 18;
+        sportcar.mpg = 12;
 
-    // Расчет дальности поездки с полным баком горючего
-        range = minivan.fuelcup * minivan.mpg;
-        System.out.println("Минивен может перевезти " + minivan.passengers + " пассажиров на расстояние " + range + " миль");
+        gallons = minivan.fuelneeded(distance);
+        System.out.println("Для преодоления " + distance + " миль, минивэну потребуется "
+                + gallons + " галлонов топлива");
 
-        range2 = sportcar.fuelcup * sportcar.mpg;
-        System.out.println("Спорткар может перевезти " + sportcar.passengers + " пассажиров на расстояние " + range2 + " миль");
-
+        gallons = sportcar.fuelneeded(distance);
+        System.out.println("Для преодоления " + distance + " миль, спортачу потребуется "
+                + gallons + " галлонов топлива");
     }
  }
 
