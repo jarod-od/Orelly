@@ -21,11 +21,16 @@ public class Calculator {
 
     JButton buttonPoint;
     JButton buttonEqual;
+    JButton buttonPlus;
+    JButton buttonMinus;
+    JButton buttonMulti;
+    JButton buttonDivide;
     JPanel p1;
+    JPanel p2;
 
     // В конструкторе создаются все компоненты
     // и добавляются на фрейм с помощью комбинации Borderlayout и Gridlayout
-    Calculator (){
+    Calculator() {
 
         windowContent = new JPanel();
 
@@ -53,9 +58,14 @@ public class Calculator {
         buttonPoint = new JButton(".");
         buttonEqual = new JButton("=");
 
+        buttonPlus = new JButton("+");
+        buttonMinus = new JButton("-");
+        buttonMulti = new JButton("*");
+        buttonDivide = new JButton("/");
+
         // Создаём панель с GridLayout которая содержит 12 кнопок - 10 кнопок с числами и кнопки с точкой и знаком равно
         p1 = new JPanel();
-        GridLayout gl = new GridLayout(4,3);
+        GridLayout gl = new GridLayout(4, 3);
         p1.setLayout(gl);
 
         // Добавляем кнопки на панель p1
@@ -69,11 +79,23 @@ public class Calculator {
         p1.add(button8);
         p1.add(button9);
         p1.add(button0);
-        p1.add (buttonPoint);
-        p1.add (buttonEqual);
+        p1.add(buttonPoint);
+        p1.add(buttonEqual);
 
         // Помещаем панель p1 в центральную область окна
         windowContent.add("Center", p1);
+
+        // Создаем вторую панель
+        p2 = new JPanel();
+        GridLayout g2 = new GridLayout(4, 3);
+        p2.setLayout(g2);
+
+        p2.add(buttonPlus);
+        p2.add(buttonMinus);
+        p2.add(buttonMulti);
+        p2.add(buttonDivide);
+
+        windowContent.add("East", p2);
 
         //Создаём фрейм и задаём его основную панель
         JFrame frame = new JFrame("Calculator");
@@ -85,7 +107,8 @@ public class Calculator {
         // Наконец, отображаем окно
         frame.setVisible(true);
     }
-    public static void main (String[] args){
-            Calculator calc = new Calculator();
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
     }
 }
