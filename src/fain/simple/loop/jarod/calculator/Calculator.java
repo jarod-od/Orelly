@@ -5,41 +5,39 @@ import java.awt.*;
 
 public class Calculator {
 
-    // Объявление всех компонентов калькулятора.
-    JPanel windowContent;
-    JTextField displayField;
-    JButton button0;
-    JButton button1;
-    JButton button2;
-    JButton button3;
-    JButton button4;
-    JButton button5;
-    JButton button6;
-    JButton button7;
-    JButton button8;
-    JButton button9;
+    // Объявление всех компонентов калькулятора
+    JButton button0 = new JButton("0");
+    JButton button1 = new JButton("1");
+    JButton button2 = new JButton("2");
+    JButton button3 = new JButton("3");
+    JButton button4 = new JButton("4");
+    JButton button5 = new JButton("5");
+    JButton button6 = new JButton("6");
+    JButton button7 = new JButton("7");
+    JButton button8 = new JButton("8");
+    JButton button9 = new JButton("9");
 
-    JButton buttonPoint;
-    JButton buttonEqual;
-    JButton buttonPlus;
-    JButton buttonMinus;
-    JButton buttonMulti;
-    JButton buttonDivide;
-    JPanel p1;
-    JPanel p2;
+    JButton buttonPoint = new JButton(".");
+    JButton buttonEqual = new JButton("=");
+
+    JButton buttonPlus = new JButton("+");
+    JButton buttonMinus = new JButton("-");
+    JButton buttonMulti = new JButton("*");
+    JButton buttonDivide = new JButton("/");
+
+    JPanel windowContent = new JPanel();
+    JTextField displayField = new JTextField(30);
 
     // В конструкторе создаются все компоненты
     // и добавляются на фрейм с помощью комбинации Borderlayout и Gridlayout
     Calculator() {
-
-        windowContent = new JPanel();
 
         // Задаём схему для этой панели
         BorderLayout b1 = new BorderLayout();
         windowContent.setLayout(b1);
 
         // Создаём и отображаем поле Добавляем его в Северную область окна
-        displayField = new JTextField(30);
+//        displayField = new JTextField(30);
         windowContent.add("North", displayField);
 
         // Создаём кнопки, используя конструктор класса JButton, который принимает текст
@@ -48,27 +46,10 @@ public class Calculator {
         // JButton numButtons [] = new JButton [10];
         // for (int i = 0; i < numButtons.length; i++)
 
-        button0 = new JButton("0");
-        button1 = new JButton("1");
-        button2 = new JButton("2");
-        button3 = new JButton("3");
-        button4 = new JButton("4");
-        button5 = new JButton("5");
-        button6 = new JButton("6");
-        button7 = new JButton("7");
-        button8 = new JButton("8");
-        button9 = new JButton("9");
 
-        buttonPoint = new JButton(".");
-        buttonEqual = new JButton("=");
-
-        buttonPlus = new JButton("+");
-        buttonMinus = new JButton("-");
-        buttonMulti = new JButton("*");
-        buttonDivide = new JButton("/");
 
         // Создаём панель с GridLayout которая содержит 12 кнопок - 10 кнопок с числами и кнопки с точкой и знаком равно
-        p1 = new JPanel();
+        JPanel p1 = new JPanel();
         GridLayout gl = new GridLayout(4, 3);
         p1.setLayout(gl);
 
@@ -90,8 +71,8 @@ public class Calculator {
         windowContent.add("Center", p1);
 
         // Создаем вторую панель
-        p2 = new JPanel();
-        GridLayout g2 = new GridLayout(4, 3);
+        JPanel p2 = new JPanel();
+        GridLayout g2 = new GridLayout(4, 1);
         p2.setLayout(g2);
 
         p2.add(buttonPlus);
@@ -112,7 +93,8 @@ public class Calculator {
         frame.setVisible(true);
 
 //        Связываем КалькуляторЭнджайн с этим классом, что бы окно попапилось
-        CalculatorEngine calcEngine = new CalculatorEngine();
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
+
         button0.addActionListener(calcEngine);
         button1.addActionListener(calcEngine);
         button2.addActionListener(calcEngine);
@@ -123,9 +105,17 @@ public class Calculator {
         button7.addActionListener(calcEngine);
         button8.addActionListener(calcEngine);
         button9.addActionListener(calcEngine);
+
+        buttonPoint.addActionListener(calcEngine);
+        buttonPlus.addActionListener(calcEngine);
+        buttonMinus.addActionListener(calcEngine);
+        buttonMulti.addActionListener(calcEngine);
+        buttonDivide.addActionListener(calcEngine);
+        buttonEqual.addActionListener(calcEngine);
     }
 
     public static void main(String[] args) {
+        // Создаем экземпляр класса “Калькулятор”
         Calculator calc = new Calculator();
     }
 }
