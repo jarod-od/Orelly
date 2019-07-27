@@ -27,8 +27,14 @@ public class CalculatorEngine implements ActionListener {
 
         // Получить число из дисплея калькулятора, если он не пустой. Восклицательный знак – это оператор отрицания
         if (!"".equals(dispFieldText)){
-            displayValue = Double.parseDouble(dispFieldText);
-        }
+            try {
+                displayValue = Double.parseDouble(dispFieldText);
+            } catch (NumberFormatException e1) {
+                javax.swing.JOptionPane.showConfirmDialog(null,
+                        "Пожалуйста, введите число", "Неправильный ввод",
+                        javax.swing.JOptionPane.PLAIN_MESSAGE);
+                return;            }
+            }
 
         Object src = e.getSource();
 
