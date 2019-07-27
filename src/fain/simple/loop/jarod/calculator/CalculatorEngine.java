@@ -21,13 +21,13 @@ public class CalculatorEngine implements ActionListener {
         // Получаем источник действия
         JButton clickedButton = (JButton) e.getSource();
 
-        String displayFieldText = parent.displayField.getText();
+        String dispFieldText = parent.displayField.getText();
 
         double displayValue = 0;
 
         // Получить число из дисплея калькулятора, если он не пустой. Восклицательный знак – это оператор отрицания
-        if (!"".equals(displayFieldText)){
-            displayValue = Double.parseDouble(displayFieldText);
+        if (!"".equals(dispFieldText)){
+            displayValue = Double.parseDouble(dispFieldText);
         }
 
         Object src = e.getSource();
@@ -41,17 +41,17 @@ public class CalculatorEngine implements ActionListener {
 
         } else if (src == parent.buttonMinus){
             selectedAction = '-';
-            currentResult=displayValue;
+            currentResult = displayValue;
             parent.displayField.setText("");
 
         } else if (src == parent.buttonDivide) {
             selectedAction = '/';
-            currentResult=displayValue;
+            currentResult = displayValue;
             parent.displayField.setText("");
 
         } else if (src == parent.buttonMulti){
             selectedAction = '*';
-            currentResult=displayValue;
+            currentResult = displayValue;
             parent.displayField.setText("");
 
         } else if (src == parent.buttonEqual){
@@ -70,7 +70,7 @@ public class CalculatorEngine implements ActionListener {
                 currentResult /= displayValue;
                 parent.displayField.setText("" + currentResult);
 
-            }else if (selectedAction=='*'){
+            }else if (selectedAction == '*'){
                 currentResult *= displayValue;
                 parent.displayField.setText("" + currentResult);
 
@@ -78,7 +78,7 @@ public class CalculatorEngine implements ActionListener {
                 // Для всех цифровых кнопок присоединить надпись на кнопке к надписи в дисплее
                 // Получаем надпись на кнопке
                 String clickedButtonLabel = clickedButton.getText();
-                parent.displayField.setText("" + currentResult);
+                parent.displayField.setText(dispFieldText + clickedButtonLabel);
             }
         }
     }
