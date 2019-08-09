@@ -1,6 +1,13 @@
 package com.jarod.orlly.lessons;
 
+import java.util.ArrayList;
+
 public class LoopFor {
+
+    LoopFor list = new LoopFor();
+
+    ArrayList <String> scope =  new ArrayList<>();
+
     public static void main(String[] args) {
 
         for (int i = 0; i < 8; i++){
