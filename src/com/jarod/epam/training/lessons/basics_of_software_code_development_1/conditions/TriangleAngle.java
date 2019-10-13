@@ -10,7 +10,7 @@ public class TriangleAngle {
             int x = 0;
             int y = 0;
 
-/*                 while (true) {
+            while (true) {
                         try {
                             System.out.println("Input x, y: ");
                             Scanner s = new Scanner(System.in);
@@ -18,10 +18,12 @@ public class TriangleAngle {
                             y = s.nextInt();
                             System.out.println("x = " + x + " deg, y = " + y + " deg");
                     break;
+                    
                 } catch (Exception e) {
                     System.out.println("Invalid input");
                 }
-            }*/
+            }
+
 
         if (x + y >= 180 || x <= 0 || y <= 0 ){
             System.out.println("Triangle does not exist");
@@ -33,5 +35,5 @@ public class TriangleAngle {
         }else{
             System.out.println("Triangle is not right");
         }
-        }
+    }
 }
