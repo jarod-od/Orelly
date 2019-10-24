@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="fain/simple/loop/|fain/simple/loop/order/bysicle/|com/jarod/shildt/lessons/|fain/simple/loop/streams/" kind="src" path="src"/>
+	<classpathentry kind="src" path="src/com/jarod/shildt/lessons"/>
+	<classpathentry excluding="order/bysicle/|streams/" kind="src" path="src/fain/simple/loop"/>
+	<classpathentry kind="src" path="src/fain/simple/loop/order/bysicle"/>
+	<classpathentry kind="src" path="src/fain/simple/loop/streams"/>
+	<classpathentry kind="output" path="out/production/Orelly"/>
+</classpath>
